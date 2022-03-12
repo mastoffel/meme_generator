@@ -1,3 +1,1 @@
-from .ingestor import Ingestor
-from .CSVIngestor import CSVIngestor
-from .TXTIngestor import TXTIngestor
+from .Ingestor import Ingestor

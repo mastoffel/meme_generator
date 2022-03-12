@@ -2,9 +2,10 @@ from abc import ABC, abstractmethod
 from xmlrpc.client import boolean
 from typing import List
 
-from .quoteModel import QuoteModel
+from .QuoteModel import QuoteModel
 
 class IngestorInterface(ABC):
+    """An abstract class to create instances to read quotes from files"""
     
     allowed_extensions = []
     

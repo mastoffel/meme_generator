@@ -2,15 +2,17 @@ from typing import List
 
 from QuoteEngine.TXTIngestor import TXTIngestor
 
-from .ingestorInterface import IngestorInterface
+from .IngestorInterface import IngestorInterface
 from .CSVIngestor import CSVIngestor
 from .TXTIngestor import TXTIngestor
-from .DOCXingestor import DOCXIngestor
+from .DOCXIngestor import DOCXIngestor
 from .PDFIngestor import PDFIngestor
-from .quoteModel import QuoteModel
+from .QuoteModel import QuoteModel
 
 
 class Ingestor(IngestorInterface):
+    """A class to read quotes from files of different types."""
+    
     ingestors = [CSVIngestor, TXTIngestor, DOCXIngestor, PDFIngestor]
     
     @classmethod

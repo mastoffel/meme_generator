@@ -3,10 +3,11 @@ from typing import List
 import os
 import random
 
-from .ingestorInterface import IngestorInterface
-from .quoteModel import QuoteModel
+from .IngestorInterface import IngestorInterface
+from .QuoteModel import QuoteModel
 
 class PDFIngestor(IngestorInterface):
+    """A class to read quotes from PDF files."""
     allowed_extensions = ['pdf']
     
     @classmethod
@@ -25,7 +26,7 @@ class PDFIngestor(IngestorInterface):
                 line = line.strip('\n\r').strip()
                 if len(line) > 0:
                     #print(line)
-                    quote = [x.strip() for x in line.split("-")]
+                    quote = [x.replace('"',"").strip() for x in line.split("-")]
                     quotes.append(QuoteModel(quote[0], quote[1]))
         
         os.remove(tmp)

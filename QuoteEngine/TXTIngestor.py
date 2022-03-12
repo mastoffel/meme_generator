@@ -1,9 +1,11 @@
 from typing import List
 
-from .ingestorInterface import IngestorInterface
-from .quoteModel import QuoteModel
+from .IngestorInterface import IngestorInterface
+from .QuoteModel import QuoteModel
 
 class TXTIngestor(IngestorInterface):
+    """A class to read quotes from .txt files."""
+    
     allowed_extensions = ['txt']
     
     @classmethod

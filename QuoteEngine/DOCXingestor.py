@@ -1,10 +1,12 @@
 from typing import List
 import docx
 
-from .ingestorInterface import IngestorInterface
-from .quoteModel import QuoteModel
+from .IngestorInterface import IngestorInterface
+from .QuoteModel import QuoteModel
 
 class DOCXIngestor(IngestorInterface):
+    """A class to read quotes from .docx files."""
+    
     allowed_extensions = ['docx']
     
     @classmethod
@@ -18,7 +20,7 @@ class DOCXIngestor(IngestorInterface):
         
         for line in doc.paragraphs:
             if line.text != "":
-                quote = line.text.rstrip('\n').split("-")
+                quote = [x.replace('"',"").strip() for x in line.text.rstrip('\n').split("-")]
             out.append(QuoteModel(quote[0], quote[1]))
         
         return out
