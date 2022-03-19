@@ -18,5 +18,8 @@ class Ingestor(IngestorInterface):
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         for ingestor in cls.ingestors:
-            if ingestor.can_ingest(path):
-                return ingestor.parse(path)
+            try:
+                if ingestor.can_ingest(path):
+                    return ingestor.parse(path)
+            except TypeError:
+                print("Fileformat not readable.")
