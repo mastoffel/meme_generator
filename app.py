@@ -38,6 +38,7 @@ def setup():
       
     return quotes, imgs
 
+quotes, imgs = setup()
 
 @app.route('/')
 def meme_rand():
@@ -70,9 +71,20 @@ def meme_post():
     # 2. Use the meme object to generate a meme using this temp
     #    file and the body and author form paramaters.
     # 3. Remove the temporary saved image.
-
-    path = None
-
+    image_url = request.form.get('image_url')
+    img_content = requests.get(image_url, stream=True).content
+    tmp_name = str(random.randint(0,100000000))
+    tmp = f'./tmp/{tmp_name}.png'
+    with open(tmp, 'wb') as img:
+        img.write(img_content)
+    # save image to temp file
+    body = request.form.get('body')
+    author = request.form.get('author')
+    
+    meme = MemeEngine('./static')
+    path = meme.make_meme(tmp, body, author)
+    os.remove(tmp)
+    
     return render_template('meme.html', path=path)
 
 

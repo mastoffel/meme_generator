@@ -15,10 +15,10 @@ class MemeEngine():
         if width > 500:
             raise ValueError("Maximum width 500")
         with Image.open(img) as im:
-            w_to_h = im.size[0] / im.size[1]
+            w_to_h = im.size[1] / im.size[0]
             new_height = int(width * w_to_h)
             new_im = im.resize((width, new_height))
-            
+        
         meme_text = text + "\n - " + author
             
         #check that text doesn't go outside
