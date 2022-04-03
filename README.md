@@ -1,7 +1,7 @@
 # Generate memes
 This program generates random memes.
 
-![](pics/hamster.jpg)
+![](pics/hamster.jpeg)
 
 ## Usage
 `python meme.py --help`
