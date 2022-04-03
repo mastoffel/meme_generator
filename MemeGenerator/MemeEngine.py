@@ -34,18 +34,18 @@ class MemeEngine():
             new_im = im.resize((width, new_height))
         
         meme_text = text + "\n - " + author
-            
+        
         #check that text doesn't go outside
         for font_size in range(30, 1, -1):
             fnt = ImageFont.truetype("/Library/Fonts/Comic Sans MS.ttf", font_size)
-            if fnt.getsize(meme_text)[0] < width-1:
+            if fnt.getsize(meme_text)[0] < width-1 and fnt.getsize(meme_text)[1] < new_height-1:
                 break
                     
         draw = ImageDraw.Draw(new_im)
         txt_coord1 = random.choice(range(1, width - fnt.getsize(meme_text)[0])) 
-        txt_coord2 = random.choice(range(1 + fnt.getsize(meme_text)[1], new_height - fnt.getsize(meme_text)[1]))
+        txt_coord2 = random.choice(range(1, new_height - fnt.getsize(meme_text)[1]))
             
-        draw.text((txt_coord1, txt_coord2), meme_text, font = fnt)
+        draw.text((txt_coord1, txt_coord2), meme_text, font = fnt, fill = "blue")
         im_name = str(random.randrange(1e8)) + ".png"
         new_im.save(self.output_dir + "/" + im_name)
         outfile = self.output_dir + "/" + im_name

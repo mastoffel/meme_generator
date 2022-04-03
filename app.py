@@ -13,17 +13,14 @@ meme = MemeEngine('./static')
 def setup():
     """ Load all resources """
 
-    quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
-                   './_data/DogQuotes/DogQuotesDOCX.docx',
-                   './_data/DogQuotes/DogQuotesPDF.pdf',
-                   './_data/DogQuotes/DogQuotesCSV.csv']
+    quote_files = ['./_data/HamsterQuotes/HamsterQuotes.txt']
 
     def flatten(t):
         return [item for sublist in t for item in sublist]
     
     quotes = flatten([Ingestor.parse(quote) for quote in quote_files])
 
-    images_path = "./_data/photos/dog/"
+    images_path = "./_data/photos/hamster/"
 
     imgs = []
     for file in os.listdir(images_path):

@@ -13,7 +13,7 @@ def generate_meme(path=None, body=None, author=None):
     quote = None
 
     if path is None:
-        images = "./_data/photos/dog/"
+        images = "./_data/photos/hamster/"
         imgs = []
         for root, dirs, files in os.walk(images):
             imgs = [os.path.join(root, name) for name in files]
@@ -23,10 +23,7 @@ def generate_meme(path=None, body=None, author=None):
         img = path[0]
 
     if body is None:
-        quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
-                       './_data/DogQuotes/DogQuotesDOCX.docx',
-                       './_data/DogQuotes/DogQuotesPDF.pdf',
-                       './_data/DogQuotes/DogQuotesCSV.csv']
+        quote_files = ['./_data/HamsterQuotes/HamsterQuotes.txt']
         quotes = []
         for f in quote_files:
             quotes.extend(Ingestor.parse(f))
