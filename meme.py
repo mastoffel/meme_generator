@@ -20,7 +20,7 @@ def generate_meme(path=None, body=None, author=None):
 
         img = random.choice(imgs)
     else:
-        img = path[0]
+        img = path
 
     if body is None:
         quote_files = ['./_data/HamsterQuotes/HamsterQuotes.txt']
@@ -49,4 +49,5 @@ if __name__ == "__main__":
     parser.add_argument('--author', type=str,
                         help='Meme text author')
     args = parser.parse_args()
+    print(args.path)
     print(generate_meme(args.path, args.body, args.author))
