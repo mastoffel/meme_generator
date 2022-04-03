@@ -9,7 +9,12 @@ class TXTIngestor(IngestorInterface):
     allowed_extensions = ['txt']
     
     @classmethod
-    def parse(cls, path: str) -> List[QuoteModel]:
+    def parse(cls, path: str):
+        """Parse a txt file and return a list of QuoteModels.
+        
+        Args:
+            path(str): The path to the .txt file to be parsed.
+        """
         if not cls.can_ingest(path):
             raise Exception('Cannot ingest extension.')
         

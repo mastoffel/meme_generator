@@ -16,3 +16,7 @@ out = meme.make_meme('_data/photos/dog/xander_1.jpg', quote.body, quote.author, 
 if __name__ == "__main__":
     print(Ingestor.parse("_data/DogQuotes/DogQuotesPDF.pdf")[1])
     print(Ingestor.parse("_data/DogQuotes/DogQuotesDOCX.docx")[1])
+    
+
+test = "hello"
+type(test)

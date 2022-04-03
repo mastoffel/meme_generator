@@ -10,7 +10,13 @@ class DOCXIngestor(IngestorInterface):
     allowed_extensions = ['docx']
     
     @classmethod
-    def parse(cls, path: str) -> List[QuoteModel]:
+    def parse(cls, path: str):
+        """Parse a docx file and return a list of QuoteModels.
+        
+        Args:
+            path(str): The path to the .docx file to be parsed.
+        """
+        
         if not cls.can_ingest(path):
             raise Exception('Cannot ingest extension.')
         

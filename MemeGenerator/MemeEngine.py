@@ -6,11 +6,25 @@ from PIL import ImageDraw
 import random
 
 class MemeEngine():
-    
+    """Generate a meme."""
     def __init__(self, output_dir):
         self.output_dir = output_dir
     
     def make_meme(self, img, text, author, width=500): 
+        """Create a meme.
+
+        Args:
+            img (str, optional): Path to img.
+            text (str, optional): Meme body.
+            author (str, optional): Meme author.
+            width (int, optional): Width of meme. Defaults to 500 px.
+
+        Returns:
+        Path to meme.
+        
+        Raises:
+            ValueError: _description_
+        """
         print(self.output_dir)
         if width > 500:
             raise ValueError("Maximum width 500")

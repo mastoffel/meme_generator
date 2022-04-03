@@ -16,7 +16,9 @@ class Ingestor(IngestorInterface):
     ingestors = [CSVIngestor, TXTIngestor, DOCXIngestor, PDFIngestor]
     
     @classmethod
-    def parse(cls, path: str) -> List[QuoteModel]:
+    def parse(cls, path: str):
+        """Parse a file and return a list of QuoteModels."""
+        
         for ingestor in cls.ingestors:
             try:
                 if ingestor.can_ingest(path):

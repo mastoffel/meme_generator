@@ -8,6 +8,7 @@ from MemeGenerator import MemeEngine
 
 def generate_meme(path=None, body=None, author=None):
     """ Generate a meme given an path and a quote """
+    
     img = None
     quote = None
 
@@ -42,10 +43,7 @@ def generate_meme(path=None, body=None, author=None):
 
 
 if __name__ == "__main__":
-    # @TODO Use ArgumentParser to parse the following CLI arguments
-    # path - path to an image file
-    # body - quote body to add to the image
-    # author - quote author to add to the image
+  
     parser = argparse.ArgumentParser(description="Make a meme.")
     parser.add_argument('--path', type=str, 
                         help='Path to image (png or jpg)')

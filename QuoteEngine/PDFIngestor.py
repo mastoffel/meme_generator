@@ -11,7 +11,13 @@ class PDFIngestor(IngestorInterface):
     allowed_extensions = ['pdf']
     
     @classmethod
-    def parse(cls, path: str) -> List[QuoteModel]:
+    def parse(cls, path: str):
+        """Parse a PDF file and return a list of QuoteModels.
+        
+        Args:
+            path (str): The path to the PDF file.
+        """
+        
         if not cls.can_ingest(path):
             raise Exception('Cannot ingest extension.')
         
