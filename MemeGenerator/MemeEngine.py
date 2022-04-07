@@ -3,6 +3,7 @@ from tkinter import font
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
+import os
 import random
 
 class MemeEngine():
@@ -47,6 +48,10 @@ class MemeEngine():
             
         draw.text((txt_coord1, txt_coord2), meme_text, font = fnt, fill = "blue")
         im_name = str(random.randrange(1e8)) + ".png"
+        # make dir if not exists
+        if not os.path.exists(self.output_dir):
+            os.makedirs(self.output_dir)
+            
         new_im.save(self.output_dir + "/" + im_name)
         outfile = self.output_dir + "/" + im_name
         return(outfile)

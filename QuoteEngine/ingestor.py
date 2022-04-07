@@ -1,7 +1,5 @@
 from typing import List
 
-from QuoteEngine.TXTIngestor import TXTIngestor
-
 from .IngestorInterface import IngestorInterface
 from .CSVIngestor import CSVIngestor
 from .TXTIngestor import TXTIngestor

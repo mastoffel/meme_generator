@@ -1,7 +1,6 @@
 import argparse
 import os
 import random
-from xml.dom.expatbuilder import parseString
 from QuoteEngine import Ingestor, QuoteModel
 from MemeGenerator import MemeEngine
 
