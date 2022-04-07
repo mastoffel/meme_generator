@@ -38,7 +38,7 @@ class MemeEngine():
         
         #check that text doesn't go outside
         for font_size in range(30, 1, -1):
-            fnt = ImageFont.truetype("/Library/Fonts/Comic Sans MS.ttf", font_size)
+            fnt = ImageFont.truetype("fonts/comic_sans_ms.ttf", font_size)
             if fnt.getsize(meme_text)[0] < width-1 and fnt.getsize(meme_text)[1] < new_height-1:
                 break
                     

@@ -58,7 +58,11 @@ def meme_post():
     #    file and the body and author form paramaters.
     # 3. Remove the temporary saved image.
     image_url = request.form.get('image_url')
-    img_content = requests.get(image_url, stream=True).content
+    try:
+        img_content = requests.get(image_url, stream=True).content
+    except requests.exceptions.ConnectionError as e:
+        return "The URL is invalid"
+    
     tmp_name = str(random.randint(0,100000000))
     tmp = f'./tmp/{tmp_name}.png'
     with open(tmp, 'wb') as img:
