@@ -1,5 +1,5 @@
 # Meme generator
- Generates memes with hamsters or whatever you like.
+ Generates memes with hampsters or whatever you like.
 
 ![Alt Text](pics/hamster.gif)
 
